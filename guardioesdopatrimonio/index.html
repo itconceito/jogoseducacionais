@@ -110,6 +110,11 @@ cursor:pointer;
 pointer-events:none;
 }
 
+.completed{
+pointer-events:none;
+opacity:.5;
+}
+
 .quiz{
 display:flex;
 justify-content:center;
@@ -273,23 +278,28 @@ Relíquias Encontradas:
 
 <img
 id="invChave"
-src="imagens/chave.png">
+src="imagens/chave.png"
+alt="Chave da História">
 
 <img
 id="invBussola"
-src="imagens/bussola.png">
+src="imagens/bussola.png"
+alt="Bússola dos Navegantes">
 
 <img
 id="invMedalhao"
-src="imagens/medalhao.png">
+src="imagens/medalhao.png"
+alt="Medalhão da Cultura">
 
 <img
 id="invLanterna"
-src="imagens/lanterna.png">
+src="imagens/lanterna.png"
+alt="Lanterna do Conhecimento">
 
 <img
 id="invCristal"
-src="imagens/cristal.png">
+src="imagens/cristal.png"
+alt="Cristal da Memória">
 
 </div>
 
@@ -312,14 +322,17 @@ id="pelourinhoBtn"
 class="hotspot"
 
 style="
-left:28%;
-top:10%;
-width:130px;
-height:130px;
+left:48%;
+top:0%;
+width:150px;
+height:150px;
+background:red;
+opacity:.4;
+z-index:9999;
 "
 
 onclick="
-startMission(1)
+alert('clicou');
 ">
 </button>
 
@@ -543,7 +556,7 @@ onclick="wrongClue()">
 
 <div id="reward1" class="view reward">
 
-<img src="imagens/chave.png">
+<img src="imagens/chave.png" alt="Chave da História">
 
 <h1>
 Chave da História Encontrada
@@ -722,7 +735,8 @@ id="reward2"
 class="view reward">
 
 <img
-src="imagens/bussola.png">
+src="imagens/bussola.png"
+alt="Bússola dos Navegantes">
 
 <h1>
 Bússola dos Navegantes Encontrada
@@ -910,7 +924,8 @@ id="reward3"
 class="view reward">
 
 <img
-src="imagens/medalhao.png">
+src="imagens/medalhao.png"
+alt="Medalhão da Cultura">
 
 <h1>
 Medalhão da Cultura Recuperado
@@ -1091,7 +1106,8 @@ id="reward4"
 class="view reward">
 
 <img
-src="imagens/lanterna.png">
+src="imagens/lanterna.png"
+alt="Lanterna do Conhecimento">
 
 <h1>
 Lanterna do Conhecimento Recuperada
@@ -1279,7 +1295,8 @@ id="reward5"
 class="view reward">
 
 <img
-src="imagens/cristal.png">
+src="imagens/cristal.png"
+alt="Cristal da Memória">
 
 <h1>
 Cristal da Memória Recuperado
@@ -1424,22 +1441,27 @@ margin-top:20px;
 
 <img
 src="imagens/chave.png"
+alt="Chave da História"
 width="64">
 
 <img
 src="imagens/bussola.png"
+alt="Bússola dos Navegantes"
 width="64">
 
 <img
 src="imagens/medalhao.png"
+alt="Medalhão da Cultura"
 width="64">
 
 <img
 src="imagens/lanterna.png"
+alt="Lanterna do Conhecimento"
 width="64">
 
 <img
 src="imagens/cristal.png"
+alt="Cristal da Memória"
 width="64">
 
 </div>
@@ -1493,7 +1515,6 @@ JOGAR NOVAMENTE
 =========================== */
 
 let progress = 0;
-let currentMission = 0;
 
 /* ===========================
    NAVEGAÇÃO
@@ -1541,8 +1562,6 @@ alert(
 
 function startMission(mission){
 
-currentMission = mission;
-
 showView(
 'quiz' + mission
 );
@@ -1587,7 +1606,7 @@ showView(
 
 function completeMission1(){
 
-progress = 1;
+progress = Math.max(progress, 1);
 
 updateMap();
 
@@ -1602,6 +1621,10 @@ document
 document
 .getElementById('lacerdaBtn')
 .classList.remove('locked');
+
+document
+.getElementById('pelourinhoBtn')
+.classList.add('completed');
 
 showView('map');
 
@@ -1621,7 +1644,7 @@ showView(
 
 function completeMission2(){
 
-progress = 2;
+progress = Math.max(progress, 2);
 
 updateMap();
 
@@ -1636,6 +1659,10 @@ document
 document
 .getElementById('mercadoBtn')
 .classList.remove('locked');
+
+document
+.getElementById('lacerdaBtn')
+.classList.add('completed');
 
 showView('map');
 
@@ -1655,7 +1682,7 @@ showView(
 
 function completeMission3(){
 
-progress = 3;
+progress = Math.max(progress, 3);
 
 updateMap();
 
@@ -1670,6 +1697,10 @@ document
 document
 .getElementById('farolBtn')
 .classList.remove('locked');
+
+document
+.getElementById('mercadoBtn')
+.classList.add('completed');
 
 showView('map');
 
@@ -1689,7 +1720,7 @@ showView(
 
 function completeMission4(){
 
-progress = 4;
+progress = Math.max(progress, 4);
 
 updateMap();
 
@@ -1704,6 +1735,10 @@ document
 document
 .getElementById('tororoBtn')
 .classList.remove('locked');
+
+document
+.getElementById('farolBtn')
+.classList.add('completed');
 
 showView('map');
 
@@ -1723,7 +1758,7 @@ showView(
 
 function completeMission5(){
 
-progress = 5;
+progress = Math.max(progress, 5);
 
 updateMap();
 
