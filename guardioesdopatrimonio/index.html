@@ -101,9 +101,13 @@ object-fit:cover;
 
 .hotspot{
 position:absolute;
-background:transparent;
-border:none;
+width:140px;
+height:140px;
+border-radius:50%;
+background:rgba(255,0,0,.25);
+border:3px solid yellow;
 cursor:pointer;
+z-index:99999;
 }
 
 .locked{
@@ -320,12 +324,10 @@ src="imagens/mapa0.png">
 id="pelourinhoBtn"
 class="hotspot"
 style="
-left:29%;
-top:1%;
+left:27%;
+top:2%;
 width:140px;
 height:140px;
-border-radius:50%;
-z-index:9999;
 "
 onclick="startMission(1)">
 </button>
@@ -338,12 +340,10 @@ onclick="startMission(1)">
 id="lacerdaBtn"
 class="hotspot locked"
 style="
-left:67%;
-top:4%;
+left:64%;
+top:8%;
 width:140px;
 height:140px;
-border-radius:50%;
-z-index:9999;
 "
 onclick="startMission(2)">
 </button>
@@ -356,12 +356,10 @@ onclick="startMission(2)">
 id="mercadoBtn"
 class="hotspot locked"
 style="
-left:58%;
-top:29%;
+left:54%;
+top:31%;
 width:140px;
 height:140px;
-border-radius:50%;
-z-index:9999;
 "
 onclick="startMission(3)">
 </button>
@@ -374,12 +372,10 @@ onclick="startMission(3)">
 id="farolBtn"
 class="hotspot locked"
 style="
-left:80%;
-top:58%;
+left:77%;
+top:63%;
 width:140px;
 height:140px;
-border-radius:50%;
-z-index:9999;
 "
 onclick="startMission(4)">
 </button>
@@ -392,12 +388,10 @@ onclick="startMission(4)">
 id="tororoBtn"
 class="hotspot locked"
 style="
-left:29%;
-top:47%;
+left:27%;
+top:52%;
 width:140px;
 height:140px;
-border-radius:50%;
-z-index:9999;
 "
 onclick="startMission(5)">
 </button>
